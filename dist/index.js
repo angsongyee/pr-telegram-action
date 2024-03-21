@@ -50,7 +50,7 @@ function run() {
         try {
             const botToken = core.getInput("bot_token");
             const chatId = core.getInput("chat_id");
-            if (github.context.eventName !== "pull_request") {
+            if (github.context.eventName !== "pull_request" && github.context.eventName !== "pull_request_target") {
                 throw new Error("This action only works on pull_request events");
             }
             const payload = github.context.payload;
